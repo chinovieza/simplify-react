@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 import logo from './logo.svg';
 import './App.css';
+import Post from './Post'
+import Comment from './Comment'
 
 function App() {
-  
+
   const myName = 'Monkey D. Luffy';
   const data01 = 20;
   const data02 = 15;
@@ -20,6 +22,10 @@ function App() {
       <p>Power is : { data01 + data02 }</p>
       { randomNumber < 0.5 ? <div>Win</div> : <div>Lost</div> }
       { myJSX }
+      <hr />
+      <Post />
+      <hr />
+      <Comment />
     </div>
   );
 }
