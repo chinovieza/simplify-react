@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import Post from './Post'
 import Comment from './Comment'
+import Child1 from './Child1'
+import Child2 from './Child2'
 
 function App() {
 
@@ -26,6 +28,11 @@ function App() {
       <Post />
       <hr />
       <Comment />
+      <hr />
+      <div>
+        <Child1 />
+        <Child2 />
+      </div>
     </div>
   );
 }
