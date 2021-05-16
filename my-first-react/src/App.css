@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.myStyle2 {
+  background-color: black;
+  color: yellow;
+  font-size: 25px;
+  text-align: center;
+}
