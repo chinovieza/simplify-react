@@ -1,11 +1,14 @@
+import React from 'react'
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <p>Hello World from App Component</p>
-    </div>
+    React.createElement(
+      'div',
+      {className: 'App'},
+      React.createElement('p', null, 'Hello World from App Component by React.createElement')
+    )
   );
 }
 
