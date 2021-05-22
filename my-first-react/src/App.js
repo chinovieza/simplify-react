@@ -1,17 +1,20 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { Component } from 'react'
 
-const App = () => {
+class App extends Component {
     
-    const myPic = 'https://picsum.photos/400/200'
-    const myPic2 = 'https://picsum.photos/seed/picsum/400/200'
+    state = {
+        id: '1',
+        name: 'Monkey D. Luffy'
+    }
 
-    return (
-        <div class="container">
-            <img class="img-thumbnail" src={ myPic } alt="Photo" />
-            <img class="img-thumbnail" src={ myPic2 } alt="Photo" />
-        </div>
-    );
+    render() {
+        return (
+            <div>
+                { this.state.name }
+            </div>
+        )
+    }
+    
 }
 
 export default App;
