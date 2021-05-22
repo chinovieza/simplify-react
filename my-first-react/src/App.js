@@ -1,25 +1,38 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const App = (props) => {
+const App = () => {
 
     const [dataState, setDataState] = useState({
-        home: '#home',
-        products: '#products',
-        profile: '#profile'
+        counter: 0
     });
 
-    return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div className="navbar-nav mx-auto">
-                    <a className="nav-item nav-link" href={dataState.home}>Home</a>
-                    <a className="nav-item nav-link" href={dataState.products}>Products</a>
-                    <a className="nav-item nav-link" href={dataState.profile}>Profile</a>
+    const plusHandler = () => {
+        setDataState({
+            counter: dataState.counter + 1
+        });
+    }
+
+    const minusHandler = () => {
+        setDataState({
+            counter: dataState.counter - 1
+        });
+    }
+
+    return(
+        <div className="col-4 mx-auto mt-4">
+            <div className="card text-center">
+                <div className="card-header">
+                    <button className="btn btn-sm btn-success mr-1" onClick={plusHandler}>INCREASE</button>
+                    <button className="btn btn-sm btn-warning mr-1" onClick={minusHandler}>DECREASE</button>
+                </div>
+                <div className="card-body">
+                    Current Number:
+                    {dataState.counter}
                 </div>
             </div>
-        </nav>
-    );
+        </div>
+    )
 }
 
 export default App;
