@@ -1,38 +1,24 @@
-import React, {useState} from 'react';
+import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Coupon from './Coupon';
 
-const App = () => {
+class App extends Component {
 
-    const [dataState, setDataState] = useState({
-        counter: 0
-    });
+    secretWord = 'asdlkfjasdfjasldfjasdflj';
 
-    const plusHandler = () => {
-        setDataState({
-            counter: dataState.counter + 1
-        });
+    sharedHandler = () => {
+        return this.secretWord;
     }
 
-    const minusHandler = () => {
-        setDataState({
-            counter: dataState.counter - 1
-        });
-    }
-
-    return(
-        <div className="col-4 mx-auto mt-4">
-            <div className="card text-center">
-                <div className="card-header">
-                    <button className="btn btn-sm btn-success mr-1" onClick={plusHandler}>INCREASE</button>
-                    <button className="btn btn-sm btn-warning mr-1" onClick={minusHandler}>DECREASE</button>
-                </div>
-                <div className="card-body">
-                    Current Number:
-                    {dataState.counter}
+    render() {
+        return (
+            <div className="container">
+                <div className="row mt-4">
+                    <Coupon getCoupon={this.sharedHandler} />
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default App;
