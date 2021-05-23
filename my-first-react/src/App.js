@@ -1,32 +1,33 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Coupon from './Coupon';
 
 class App extends Component {
 
     state = {
-        coupon1: {
-            secretWord: 'asdfghjkl;',
-            status: true
-        },
-        coupon2: {
-            secretWord: 'qwertyuiop;',
-            status: true
-        }
+        data: false
     }
 
-    useCoupon = (name) => {
-        const updatedCoupon = {...this.state};
-        updatedCoupon[name].status = false;
-        this.setState(updatedCoupon);
+    toggleHandler = () => {
+        const newData = !this.state.data;
+        this.setState({
+            data: newData
+        });
     }
 
     render() {
-        return (
-            <div className="container">
-                <div className="row mt-4">
-                    <Coupon data={this.state['coupon1']} setCoupon={this.useCoupon.bind(this, 'coupon1')} />
-                    <Coupon data={this.state['coupon2']} setCoupon={this.useCoupon.bind(this, 'coupon2')} />
+        return(
+            <div className="col-4 mx-auto mt-5">
+                <div className="card">
+                    <div className="card-header text-right">
+                        <button type="button" className="btn btn-success btn-sm" onClick={this.toggleHandler}>
+                            {this.state.data ? 'Hide' : 'Show'}
+                        </button>
+                    </div>
+                    {
+                        this.state.data
+                        ? <div className="card-body p-5 text-center"><div>Hello World!</div></div>
+                        : null
+                    }
                 </div>
             </div>
         )
