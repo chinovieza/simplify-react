@@ -15,19 +15,6 @@ class App extends Component {
     }
 
     render() {
-
-        let myJSX = null;
-
-        if (this.state.data === true) {
-            myJSX = (
-                <div className="card-body p-5 text-center">
-                    <div>
-                        Hello World!
-                    </div>
-                </div>
-            );
-        }
-
         return(
             <div className="col-4 mx-auto mt-5">
                 <div className="card">
@@ -36,7 +23,11 @@ class App extends Component {
                             {this.state.data ? 'Hide' : 'Show'}
                         </button>
                     </div>
-                    {myJSX}
+                    {
+                        this.state.data
+                        ? <div className="card-body p-5 text-center"><div>Hello World!</div></div>
+                        : null
+                    }
                 </div>
             </div>
         )
