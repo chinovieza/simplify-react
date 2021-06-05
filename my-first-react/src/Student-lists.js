@@ -20,8 +20,11 @@ const StudentLists = () => {
         }
     )
 
-    const deleteItemHandler = (deleteIndex) => {
+    const deleteItemHandler = (deleteKey) => {
         const data = [...studentState.students];
+        const deleteIndex = data.findIndex((item) => {
+            return item.id === deleteKey;
+        });
         data.splice(deleteIndex, 1);
         setStudentState({
             students : data
@@ -30,10 +33,10 @@ const StudentLists = () => {
 
     return (
         <div className="row">
-            {studentState.students.map((item, index) => {
+            {studentState.students.map((item) => {
                 return(
                     <div key={item.id} className="col-lg-3 col-sm-4 mt-2">
-                        <Student data={item} deleteStudent={deleteItemHandler.bind(this, index)} />
+                        <Student data={item} deleteStudent={deleteItemHandler.bind(this, item.id)} />
                     </div>
                 )
             })}
