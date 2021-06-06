@@ -2,7 +2,7 @@ import React from 'react';
 import Posts from './Posts';
 import Profile from './Profile';
 import Home from './Home';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, NavLink } from 'react-router-dom';
 
 const App = () => {
     return (
@@ -12,9 +12,9 @@ const App = () => {
             </div>
             <div>
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/posts">All Posts</Link></li>
-                    <li><Link to="/profile">User Profile</Link></li>
+                    <li><NavLink to="/">Home</NavLink></li>
+                    <li><NavLink to="/posts" activeStyle={{color:"green"}}>All Posts</NavLink></li>
+                    <li><NavLink to="/profile" activeStyle={{color:"green"}}>User Profile</NavLink></li>
                 </ul>
                 <Route path="/posts" component={Posts} />
                 <Route path="/profile" component={Profile} />
