@@ -22,6 +22,10 @@ const PostId = (props) => {
         post = (
             <PostItem title="Post #4 Jinbe" content="Knight of the Sea Jinbe is the helmsman of the Straw Hat Pirates. He is the tenth member of the crew and the ninth to join, doing so during the Wano Country Arc" />
         );
+    } else if (id === '5') {
+        post = (
+            <PostItem title="" content="Lorem ipsum" />
+        );
     }
 
     return (
