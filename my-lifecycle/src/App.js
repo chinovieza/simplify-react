@@ -1,26 +1,20 @@
-import React, {Component} from 'react';
+import React from 'react';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Child from './Child';
 
-class App extends Component {
-    
-    state = {
-        counter: 1
-    }
-
-    plusCounter() {
-        this.setState({
-            counter: this.counter + 1
-        })
-        return this.state.counter;
-    }
-
-    render() {
-        return (
+const App = () => {
+    return (
+        <BrowserRouter>
             <div>
-                <Child counterFN={this.plusCounter.bind(this)} />
+                <ul>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/child">Child</Link></li>
+                </ul>
+                <Route path="/child" component={Child} />
             </div>
-        )
-    }
+        </BrowserRouter>
+    )
 }
 
 export default App;

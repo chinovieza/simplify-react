@@ -15,8 +15,12 @@ class Child extends Component {
         console.log("-> render()", this.props);
         return (
             <div>
-                Hello, This is the Child!!!
-                <button onClick={this.userClick}>Change State</button>
+                <button onClick={this.userClick}>
+                    State Change!!!
+                </button>
+                <button onClick={this.props.counterFN}>
+                    Props Change!!!
+                </button>
             </div>
         )
     }
@@ -35,10 +39,6 @@ class Child extends Component {
 
     componentWillReceiveProps() {
         console.log("-> componentWillReceiveProps() : I have got new props!!");
-    }
-
-    componentWillUnmount() {
-        console.log("-> componentWillUnmount() : Unmout LifeCycle Component!!!");
     }
 
     userClick = () => {
