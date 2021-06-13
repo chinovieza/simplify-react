@@ -1,51 +1,26 @@
 import React, {Component} from 'react';
+import Child from './Child';
 
 class App extends Component {
+    
+    state = {
+        counter: 1
+    }
 
-  state = {
-    name: "Monkey D. Luffy",
-    status: true
-  };
+    plusCounter() {
+        this.setState({
+            counter: this.counter + 1
+        })
+        return this.state.counter;
+    }
 
-  componentWillMount() {
-    console.log("-> componentWillMount()");
-  }
-
-  render() {
-    console.log("-> render()", this.props);
-    return (
-      <div onClick={this.userClick}>
-        Hello!, Life Cycle!!! {this.state.name}
-      </div>
-    )
-  }
-
-  componentDidMount() {
-    console.log("-> componentDidMount()");
-  }
-
-  componentWillUpdate() {
-    console.log("-> componentWillUpdate()");
-  }
-
-  componentDidUpdate() {
-    console.log("-> componentDidUpdate()")
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-      if (nextState.status === false) {
-          return false;
-      }
-      return true;
-  }
-
-  userClick = () => {
-      this.setState({
-          name: "Luffytaro",
-          status: false
-      })
-  }
-
+    render() {
+        return (
+            <div>
+                <Child counterFN={this.plusCounter.bind(this)} />
+            </div>
+        )
+    }
 }
 
 export default App;
