@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 class App extends Component {
 
   state = {
-    name: "Monkey D. Luffy"
+    name: "Monkey D. Luffy",
+    status: true
   };
 
   componentWillMount() {
@@ -31,9 +32,17 @@ class App extends Component {
     console.log("-> componentDidUpdate()")
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+      if (nextState.status === false) {
+          return false;
+      }
+      return true;
+  }
+
   userClick = () => {
       this.setState({
-          name: "Luffytaro"
+          name: "Luffytaro",
+          status: false
       })
   }
 
