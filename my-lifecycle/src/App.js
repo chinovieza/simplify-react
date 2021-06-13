@@ -1,20 +1,47 @@
-import React from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Child from './Child';
+import React, {Component} from 'react';
 
-const App = () => {
-    return (
-        <BrowserRouter>
+class App extends Component {
+
+    state = {
+        status: true
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.state.status === nextState.status) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    render() {
+        console.log('Current state is : ' + this.state.status);
+        return(
             <div>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/child">Child</Link></li>
-                </ul>
-                <Route path="/child" component={Child} />
+                <button onClick={this.clickHandler}>Change State</button>
+                <hr/>
+                {
+                    this.showHide()
+                }
             </div>
-        </BrowserRouter>
-    )
+        )
+    }
+
+    checkCondition = () => {
+        return this.state.status
+    }
+
+    showHide = () => {
+        return (
+            this.checkCondition() ? <div>Show</div> : <div>Hide</div>
+        )
+    }
+
+    clickHandler = () => {
+        this.setState({
+            status: false
+        });
+    }
 }
 
 export default App;
