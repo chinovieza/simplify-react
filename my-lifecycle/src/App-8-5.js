@@ -1,9 +1,17 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 
-class App extends PureComponent {
-    
+class App extends Component {
+
     state = {
         status: true
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.state.status === nextState.status) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     render() {
