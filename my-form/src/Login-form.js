@@ -17,11 +17,18 @@ class LoginForm extends Component {
 
     }
 
+    onLoginSubmit = (event) => {
+        
+        event.preventDefault();
+        console.log(this.state);
+
+    }
+
     render() {
         return (
             <div className="col-6 mt-5 mx-auto card">
                 <div className="card-body">
-                    <form>
+                    <form onSubmit={this.onLoginSubmit}>
                         <div className="form-group">
                             <label htmlFor="username">Username</label>
                             <input type="text" className="form-control" id="username" name="username" onChange={this.onInputChange} />
