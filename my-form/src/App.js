@@ -1,12 +1,12 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import LoginForm from './Login-form';
+import Register from './Register';
 
 function App() {
 
   return (
     <div className="container">
-      <LoginForm />
+      <Register />
     </div>
   );
 
